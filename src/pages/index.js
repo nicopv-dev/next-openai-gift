@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +13,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-3xl font-bold underline">SuGIFT!</h1>
+      <div className="min-h-screen grid place-content-center place-items-center">
+        <section className="flex flex-col items-center">
+          <h1 className="text-white text-6xl font-extrabold">SuGIFT</h1>
+          <p className="text-white font-semibold">Sugerencias para regalos</p>
+        </section>
+
+        <Footer />
+      </div>
     </>
   );
 }

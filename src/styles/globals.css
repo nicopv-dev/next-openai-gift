@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.cdnfonts.com/css/gilroy-bold");
+
+@layer {
+  * {
+    font-family: "Gilroy-Bold", sans-serif;
+    font-family: "Gilroy-Heavy", sans-serif;
+    font-family: "Gilroy-Light", sans-serif;
+    font-family: "Gilroy-Medium", sans-serif;
+    font-family: "Gilroy-Regular", sans-serif;
+  }
+
+  body {
+    background-image: linear-gradient(
+      to right top,
+      #1b383c,
+      #00465d,
+      #005186,
+      #0057ae,
+      #0054cc,
+      #4051d7,
+      #644bdf,
+      #8541e4,
+      #8d49ea,
+      #9550ef,
+      #9c58f5,
+      #a45ffb
+    );
+  }
+}
