@@ -1,10 +1,42 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import Suggestion from "@/components/Suggestion";
+import Main from "@/components/Main";
+import Results from "@/components/Results";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [data, setData] = useState({
+    results: [],
+    isLoading: false,
+    status: false,
+  });
+
+  const onChangeIsLoading = (isLoading) => {
+    setData((prevState) => ({
+      ...prevState,
+      isLoading,
+    }));
+  };
+
+  const onChangeStatus = (status) => {
+    setData((prevState) => ({
+      ...prevState,
+      status,
+    }));
+  };
+
+  const onChangeResults = (results) => {
+    setData((prevState) => ({
+      ...prevState,
+      results,
+    }));
+  };
+
   return (
     <>
       <Head>
@@ -13,14 +45,29 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-screen grid place-content-center place-items-center">
-        <section className="flex flex-col items-center">
-          <h1 className="text-white text-6xl font-extrabold">SuGIFT</h1>
-          <p className="text-white font-semibold">Sugerencias para regalos</p>
-        </section>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="min-h-screen flex justify-center items-center"
+      >
+        <div className="max-w-xl w-full space-y-4 px-4 sm:px-0">
+          <Main />
 
-        <Footer />
-      </div>
+          <Suggestion
+            isLoading={data.isLoading}
+            onChangeIsLoading={onChangeIsLoading}
+            onChangeStatus={onChangeStatus}
+            onChangeResults={onChangeResults}
+          />
+
+          {data.status ? (
+            <Results status={data.status} results={data.results} />
+          ) : null}
+
+          <Footer />
+        </div>
+      </motion.div>
     </>
   );
 }
