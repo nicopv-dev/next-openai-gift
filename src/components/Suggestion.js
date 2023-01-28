@@ -42,7 +42,7 @@ export default function Suggestion({
 
   return (
     <form
-      className="flex flex-col sm:flex-row items-center gap-0 sm:gap-2 h-full sm:h-12 shadow-md"
+      className="flex flex-col sm:flex-row items-center h-full sm:h-12 shadow-md"
       onSubmit={onSubmit}
     >
       <input
@@ -54,7 +54,7 @@ export default function Suggestion({
       />
       {!isLoading ? (
         <button
-          className="text-white bg-blue-600 w-full h-10 sm:h-full px-4 py-1 sm:py-0"
+          className="text-white bg-blue-600 w-full sm:w-2/5 h-10 sm:h-full px-4 py-1 sm:py-0"
           type="submit"
         >
           BUSCAR
