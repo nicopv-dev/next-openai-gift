@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Loading from "./Loading";
+import { IoSearchOutline } from "react-icons/io5";
 
 export default function Suggestion({
   isLoading,
@@ -42,7 +43,7 @@ export default function Suggestion({
 
   return (
     <form
-      className="flex flex-col sm:flex-row items-center h-full sm:h-12 shadow-md"
+      className="flex flex-col sm:flex-row items-center h-full sm:h-12 shadow-md transition-all duration-300 ease-in-out hover:shadow-xl"
       onSubmit={onSubmit}
     >
       <input
@@ -54,14 +55,15 @@ export default function Suggestion({
       />
       {!isLoading ? (
         <button
-          className="text-white bg-blue-600 w-full sm:w-2/5 h-10 sm:h-full px-4 py-1 sm:py-0"
+          className="text-white bg-blue-600 h-10 sm:h-full px-8 py-1 sm:py-0 flex items-center gap-2"
           type="submit"
         >
+          <IoSearchOutline />
           BUSCAR
         </button>
       ) : (
         <button
-          className="text-white bg-blue-600 w-full h-10 sm:h-full px-4 py-1 sm:py-0"
+          className="text-white bg-blue-600 h-10 sm:h-full px-4 py-1 sm:py-0 flex justify-center items-center"
           type="button"
         >
           <Loading />
